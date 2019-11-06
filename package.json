@@ -1,0 +1,59 @@
+{
+  "name": "postcss-convert-unit",
+  "version": "0.1.0",
+  "description": "Convert css unit and value by custom rule",
+  "author": "hoivee",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hoivee/postcss-convert-unit.git"
+  },
+  "homepage": "https://github.com/hoivee/postcss-convert-unit",
+  "bugs": "https://github.com/hoivee/postcss-convert-unit/issues",
+  "main": "index.js",
+  "module": "index.mjs",
+  "files": [
+    "index.js",
+    "index.js.map",
+    "index.mjs",
+    "index.mjs.map"
+  ],
+  "scripts": {
+    "build": "rollup -c rollup.config.js",
+    "pretest": "npm run build",
+    "test": "jest",
+    "prepublishOnly": "npm test",
+    "coverage": "jest --coverage"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "dependencies": {
+    "postcss": "^7.0.20"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.6.3",
+    "eslint": "^5.15.2",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "jest": "^24.9.0",
+    "rollup": "^1.26.0",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-eslint": "^7.0.0"
+  },
+  "keywords": [
+    "postcss",
+    "css",
+    "postcss-plugin",
+    "value",
+    "unit",
+    "conversion",
+    "converter",
+    "convert",
+    "rem"
+  ]
+}

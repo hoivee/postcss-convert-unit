@@ -1,0 +1,17 @@
+@media only screen and (min-device-width: 241px) and (max-device-width: 360px) {
+  div {
+    animation: anim4 linear infinite;
+    width: 10px
+  }
+  [test] div {
+    width: 20rem
+  }
+  @keyframes anim {
+    0% {
+      height: 2rem;
+    }
+    100% {
+      height: 300rem;
+    }
+  }
+}

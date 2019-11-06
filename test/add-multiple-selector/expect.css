@@ -1,0 +1,9 @@
+.div {
+  width: 20px;
+}
+.div {
+  width: 20rem;
+}
+[data-test].div {
+  width: 40rem;
+}

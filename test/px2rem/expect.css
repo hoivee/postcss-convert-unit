@@ -1,0 +1,16 @@
+.selector {
+  border: 1px solid #ddd; /*no*/
+  width: 2rem;
+}
+[data-dpr="1"] .selector {
+  height: 32px;
+  font-size: 14px;
+}
+[data-dpr="2"] .selector {
+  height: 64px;
+  font-size: 28px;
+}
+[data-dpr="3"] .selector {
+  height: 96px;
+  font-size: 42px;
+}
