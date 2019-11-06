@@ -1,6 +1,8 @@
 # postcss-convert-unit
 
-对 css 中的值与单位通过自定义转换规则进行转换。能为转换后的属性生成新的选择器。
+[中文](https://github.com/hoivee/postcss-convert-unit/blob/master/README.zh.md)
+
+Convert values and units in css through custom conversion rules. A new selector can be generated for the converted property.
 
 ## Install
 
@@ -10,13 +12,11 @@ npm install postcss-convert-unit --save-dev
 
 ## Usage
 
-### 示例
-
-#### 简单示例
+#### simple
 
 ---
 
-插件配置：
+postcss config：
 
 ```javascript
 // postcss.config.js
@@ -55,10 +55,10 @@ output:
 }
 ```
 
-#### 模拟px2rem
+#### px2rem
 
 ---
-插件配置：
+postcss config：
 
 ```javascript
 // postcss.config.js
@@ -139,54 +139,53 @@ output:
 
 ```
 
-### option
-```typescript
-type convertConfig = ConvertItem[]
-interface ConvertItem {
-    declMatcher: DeclsMatcher
-    precision: number
-    removeMatchDecl: boolean
-    declConvertRules: ConvertRule[]
-}
-interface DeclsMatcher {
-    sourceUnit: string
-    targetUnit: string
-    afterDeclComment: string
-}
-interface ConvertRule {
-    value: (value: number)=>  number
-    withNewSelector: (selector: number) => string
+### Options
+```javascript
+{
+  convertConfig: [
+    {
+      declMatcher: {
+        sourceUnit: 'px',
+        targetUnit: 'rem',
+        afterDeclComment: 'rem'
+      },
+      precision: 5,
+      removeMatchDecl: false,
+      declConvertRules: [
+        {
+          value: value => value,
+          withNewSelector: selector => selector
+        }
+      ]
+    }
+  ]
 }
 ```
-- option
 
-| 选项 | 说明 | 类型 | 默认值 | 必填 |
+| Attribute | Description | Type | Default | Required |
 | :---:| :---: | :---: | :---: | :---: |
-| convertConfig | 插件配置项 | convertItem[] | [] | 是|
-
+| convertConfig | convert config list | convertItem[] | [] | yes|
 - convertItem
 
-
-| 选项 | 说明 | 类型 | 默认值 | 必填 |
+| Attribute | Description | Type | Default | Required |
 | :---:| :---: | :---: | :---: | :---: |
-| declMatcher | 匹配要转换的属性声明 | string | - | 是 |
-| precision | 单位值的精度 | number | 5 | 否 |
-| declConvertRules | 转换规则项 | convertRule[] | - | 是 |
+| declMatcher | match declaration | string | - | yes |
+| declConvertRules | declaration convert rules | convertRule[] | - | yes |
+| precision | value precision | number | 5 | no |
 
 - declMatcher
 
-| 选项 | 说明 | 类型 | 默认值 | 必填 |
+| Attribute | Description | Type | Default | Required |
 | :---:| :---: | :---: | :---: | :---: |
-| sourceUnit | 被转换单位 | string | - | 是 |
-| targetUnit | 转换后的单位 | string | - | 是 |
-| afterDeclComment | 属性定义后跟的注释文本 | string | - | 否 |
+| sourceUnit | source unit | string | - | yes |
+| targetUnit | target unit | string | - | yes |
+| afterDeclComment | comment after declaration | string | - | no |
 
 - convertRule
 
-**注意：** 如果配置 withNewSelector 将生产新的选择器；如果未配置
-withNewSelector 将在源定义处进行单位转换。 对 @keyframes ，将直接在源定义处进行单位转换，如果配置了多个convertRule，最后配置的才会生效，因为后配置的会覆盖先配置的。
+**notice：** If set ```withNewSelector```, a new selector will be generated for the converted declaration；if not set ```withNewSelector```, values and units will converted in origin declaration。 for @keyframes ，it will converted in origin declaration。If multiple ```convertRules``` are configured，the last configuration will take effect, because the post configuration will override the first configuration.。
 
-| 选项 | 说明 | 类型 | 默认值 | 必填 |
+| Attribute | Description | Type | Default | Required |
 | :---:| :---: | :---: | :--- | :---: |
-| value | 匹配项值的转换规则 | function(value)，value 为匹配到的值，需要实现值的转换规则，并返回转换后的值 | - | 是 |
-| withNewSelector | 匹配项选择器的转换规则 | function(selector)， selector为匹配到的选择器，需要实现转换规则，并返回转换后的选择器。| - | 否 |
+| value | value convert rule | function(value)，```value``` is matched value，you need implement convert rule，and return converted value| - | yes |
+| withNewSelector | new selector generated rule  | function(selector)， ```selector```is matched selector，you need implement convert rule，and return new selector| - | no |
