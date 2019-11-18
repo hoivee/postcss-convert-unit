@@ -1,6 +1,6 @@
 {
   "name": "postcss-convert-unit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Convert css unit and value by custom rule",
   "author": "hoivee",
   "license": "MIT",
