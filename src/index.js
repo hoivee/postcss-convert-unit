@@ -22,9 +22,6 @@ class PostcssConvertUnits {
       regUnitPrecision = new RegExp(`\\d*.\\d{${precision}}`)
     }
     return function processDeclaration (ruleParent, rule, declaration) {
-      if (declaration._newDeclaration) {
-        return false
-      }
       const isMatched = regSourceUnit.test(declaration.value)
       regSourceUnit.lastIndex = 0 // reset lastIndex
       if (!isMatched) {

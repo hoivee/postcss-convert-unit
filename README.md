@@ -1,5 +1,11 @@
 # postcss-convert-unit
 
+[![npm](https://img.shields.io/npm/v/postcss-convert-unit)](https://www.npmjs.com/package/postcss-convert-unit)
+[![Actions Status](https://github.com/hoivee/postcss-convert-unit/workflows/build/badge.svg)](https://github.com/hoivee/postcss-convert-unit)
+[![coverage](https://img.shields.io/coveralls/github/hoivee/postcss-convert-unit)](https://coveralls.io/github/hoivee/postcss-convert-unit)
+[![license](https://img.shields.io/github/license/hoivee/postcss-convert-unit)](https://github.com/hoivee/postcss-convert-unit/blob/master/LICENSE)
+
+
 [中文](https://github.com/hoivee/postcss-convert-unit/blob/master/README.zh.md)
 
 Convert values and units in css through custom conversion rules. A new selector can be generated for the converted property.
