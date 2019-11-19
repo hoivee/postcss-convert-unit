@@ -142,8 +142,9 @@ output:
 
 ```
 
-### Options
+## Options
 ```javascript
+// example
 {
   convertConfig: [
     {
