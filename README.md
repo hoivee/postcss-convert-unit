@@ -190,7 +190,7 @@ output:
 
 - convertRule
 
-**notice：** If set ```withNewSelector```, a new selector will be generated for the converted declaration；if not set ```withNewSelector```, values and units will converted in origin declaration。 for @keyframes ，it will converted in origin declaration。If multiple ```convertRules``` are configured，the last configuration will take effect, because the post configuration will override the first configuration.。
+**notice：** If set ```withNewSelector```, a new selector will be generated for the converted declaration; if not set ```withNewSelector```, values and units will converted in origin declaration. for @keyframes, it will converted in origin declaration. If multiple ```convertRules``` are configured, the last configuration will take effect, because the post configuration will override the first configuration.
 
 | Attribute | Description | Type | Default | Required |
 | :---:| :---: | :---: | :--- | :---: |
